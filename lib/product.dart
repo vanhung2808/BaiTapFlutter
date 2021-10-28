@@ -14,13 +14,13 @@ class Product {
 
   Product(this.id, this.title, this.price, this.description, this.category,
       this.image, this.rating);
+
   static Future<List<Product>> fetchData() async {
     String url = "https://fakestoreapi.com/products";
 
     var client = http.Client();
     var response = await client.get(Uri.parse(url));
     if (response.statusCode == 200) {
-      print("Lay du lieu thanh cong");
       var result = response.body;
       var jsonData = jsonDecode(result);
       List<Product> ls = [];
@@ -41,11 +41,9 @@ class Product {
             new Product(id, title, price, description, category, image, rating);
         ls.add(p);
       }
-      print("Length = ${ls.length}");
       return ls;
     } else {
-      print("Call api fail");
-      throw Exception("Loi lay du lieu");
+      throw Exception("Call API fail");
     }
   }
 }

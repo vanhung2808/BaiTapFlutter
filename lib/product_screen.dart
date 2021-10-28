@@ -41,10 +41,24 @@ class _ProductScreenState extends State<ProductScreen> {
                           style: TextStyle(fontSize: 24, color: Colors.black87),
                           maxLines: 1,
                         ),
-                        subtitle: Text(
-                          product.description,
-                          style: TextStyle(fontSize: 15),
-                          maxLines: 3,
+                        subtitle: Column(
+                          children: [
+                            Text(
+                              product.description,
+                              style: TextStyle(fontSize: 15),
+                              maxLines: 5,
+                            ),
+                            Text(
+                              "\Rating: ${product.rating.rate}",
+                              style: TextStyle(fontSize: 12, color: Colors.red),
+                              maxLines: 1,
+                            ),
+                            Text(
+                              "\Count: ${product.rating.count}",
+                              style: TextStyle(fontSize: 12, color: Colors.red),
+                              maxLines: 1,
+                            )
+                          ],
                         ),
                         leading: Image.network(
                           product.image,
@@ -55,7 +69,7 @@ class _ProductScreenState extends State<ProductScreen> {
                           children: [
                             Text("\$${product.price}",
                                 style: TextStyle(
-                                    fontSize: 20, color: Colors.red)),
+                                    fontSize: 25, color: Colors.red)),
                             BuyProduct()
                           ],
                         ),
