@@ -1,3 +1,4 @@
+import 'package:baitap_product/list_product.dart';
 import 'package:baitap_product/product_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: ProductScreen());
+        home: ListImageProduct());
   }
 }
